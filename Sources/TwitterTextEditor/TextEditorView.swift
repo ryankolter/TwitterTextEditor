@@ -386,10 +386,17 @@ public final class TextEditorView: UIView {
 
         // UIView
         textView.backgroundColor = .clear
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 7
+        style.paragraphSpacing = 12
+        let attributes = [NSAttributedString.Key.paragraphStyle : style]
+        textView.typingAttributes = attributes
 
         // UIScrollView
         textView.alwaysBounceVertical = true
         textView.contentInsetAdjustmentBehavior = .never
+        textView.showsVerticalScrollIndicator = false
+        textView.showsHorizontalScrollIndicator = false
 
         // UITextDraggable
         textView.textDragOptions = [.stripTextColorFromPreviews]
@@ -920,6 +927,16 @@ public final class TextEditorView: UIView {
      */
     public var textContentView: UIView {
         textView.textInputView
+    }
+    
+    public var cursorOffsetHeight: CGFloat {
+        if let selectedTextRange = textView.selectedTextRange {
+            let caretPositionRect = textView.caretRect(for: selectedTextRange.start)
+            let caretOrigin = caretPositionRect.origin
+            return caretOrigin.y
+        } else {
+            return CGFloat.zero
+        }
     }
 
     /**
