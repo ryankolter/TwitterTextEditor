@@ -1413,6 +1413,23 @@ public final class TextEditorView: UIView {
             setNeedsUpdateTextAttributes()
         }
     }
+    
+    /**
+     The current typingAttributes of `text`.
+
+     - SeeAlso:
+       - `textAttributesDelegate`
+     */
+    public var typingAttributes: [NSAttributedString.Key : Any] {
+        get {
+            textView.typingAttributes
+        }
+        set {
+            textView.typingAttributes = newValue
+
+            setNeedsUpdateTextAttributes()
+        }
+    }
 
     /**
      The current tint color of text editor view.
