@@ -386,11 +386,6 @@ public final class TextEditorView: UIView {
 
         // UIView
         textView.backgroundColor = .clear
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 7
-        style.paragraphSpacing = 12
-        let attributes = [NSAttributedString.Key.paragraphStyle : style]
-        textView.typingAttributes = attributes
 
         // UIScrollView
         textView.alwaysBounceVertical = true
