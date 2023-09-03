@@ -386,7 +386,6 @@ public final class TextEditorView: UIView {
 
         // UIView
         textView.backgroundColor = .clear
-        textView.autocorrectionType = .no
 
         // UIScrollView
         textView.alwaysBounceVertical = true
